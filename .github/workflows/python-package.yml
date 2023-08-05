@@ -33,7 +33,7 @@ jobs:
         black --check .
         isort --check .
         ruff .
-        mypy .
+        mypy pca_impute test
     - name: Test with pytest
       run: |
         pytest --cov
