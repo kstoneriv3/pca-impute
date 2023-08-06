@@ -2,12 +2,6 @@
 A reasonably fast and accurate missing value imputation by iterative PCA.
 
 
-## Motivation
-The PCA-based missing value imputer is known to be reasonably fast and accurate, but scikit-learn has only slower and/or less advanced imputers IMPO. So here is an implementation of the PCA-based imputer!
-
-Note: I didn't know fancyimputer before implementing this, but this implementation seems faster than theirs for some reason...
-
-
 ## Installation
 
 ```bash
@@ -26,6 +20,9 @@ array([[1.        , 2.        , 3.        ],
 >>>
 ```
 
+
+## Motivation
+The PCA-based missing value imputer is known to be reasonably fast and accurate, but scikit-learn has only slower and/or less advanced imputers (in my personal opinion). So here is an implementation of the PCA-based imputer!
 
 ## Algorithm
 1) Initialize the estimate of the missing values by the mean.
