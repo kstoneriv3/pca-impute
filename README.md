@@ -42,9 +42,9 @@ If I'm not mistaken, this algorithm solves
 $$\hat X = \arg\min_{\tilde X\in \mathbb{R}^{n\times d}: \mathrm{Rank}(\tilde X) \leq d} \sum_{(i, j) \in O} \|X_{i,j} - \tilde X_{i, j}\|^2,$$
 where $O = \\{(i, j):X_{i, j} \text{ is observed} \\}$, to estimate the missing values.
 
-This is because the above algorithm corresponds to the (block) coordinate descent of 
-$$(\hat X, \hat M) = \arg\min_{\tilde X, M\in \mathbb{R}^{n\times d}: \mathrm{Rank}(\tilde X) \leq d} \left[ \sum_{(i, j) \in O} \|X_{i,j} - \tilde X_{i, j}\|^2 + \sum_{(i, j) \not\in O} \|M_{i,j} - \tilde X_{i, j}\|^2 \right],$$
-where $M$ corresponds to the guess of missing values and $\tilde X$ corresponds to the PCA reconstruction.
+This is because the above algorithm corresponds to the (block) coordinate descent of the following equivalent problem:
+$$(\hat X, \hat M) = \arg\min_{\tilde X, M\in \mathbb{R}^{n\times d}: \mathrm{Rank}(\tilde X) \leq d} \left[ \sum_{(i, j) \in O} \|X_{i,j} - \tilde X_{i, j}\|^2 + \sum_{(i, j) \not\in O} \|M_{i,j} - \tilde X_{i, j}\|^2 \right].$$
+In the above algorithm, $M$ corresponds to the guess of missing values and $\tilde X$ corresponds to the PCA reconstruction.
 
 
 ## Comparison to other algorithms / implementations
