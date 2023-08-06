@@ -43,5 +43,4 @@ sklearn.impute.IterativeImputer: 87.45235776901245 sec
 MSE:    0.557537819762688
 sklearn.impute.KNNImputer: 51.810137033462524 sec
 MSE:    1.280416815792845
-"""
-
+```
