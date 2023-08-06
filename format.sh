@@ -1,4 +1,4 @@
 black .
 isort .
 ruff .
-mypy .
+mypy pca_impute test
