@@ -27,9 +27,14 @@ def test_impute(data: Data) -> None:
     X0, X = data
     X_mean = pca_impute._impute._impute_by_mean(X)
     X_pca = pca_impute.impute(X, n_components=3)
+
+    assert np.any(np.isnan(X))
+    assert not np.any(np.isnan(X_pca))
+
     SST = np.sum((X0 - X_mean) ** 2)
     SSR = np.sum((X0 - X_pca) ** 2)
     R2 = 1 - SSR / SST
+
     # We expect pca should be much better than mean imputation.
     assert R2 > 0.8
 
