@@ -37,7 +37,11 @@ Then iterate 2-5 to refine the estimate.
 
 
 ## Comparison to other imputers / implementations
-According to my benchmark with synthetic data from a probabilistic PCA model (with missing at random assumption), `pca-impute` had better mean squared error (MSE) compared to other imputation algorithms available in sklearn. Additionally, runtime of the algorithm was about 3 times faster than a similar implementation of iterative PCA (iterative SVD) algorithm, with our implementation having slightly better MSE. The benchmark script is available at `example/benchmark.py`, and I got the following result on my laptop:
+According to my benchmark with synthetic data from a probabilistic PCA model (with missing at random assumption), pca-impute had better mean squared error (MSE) compared to other imputation algorithms available in scikit-learn.
+
+Additionally, execution time of the algorithm was about 3 times faster than a similar implementation of iterative PCA (iterative SVD) algorithm in fancyimpute, while our implementation had slightly better MSE.
+
+The benchmark script is available at `example/benchmark.py`, and I got the following result on my laptop:
 
 ```bash
 $ python example/benchmark.py
