@@ -3,9 +3,9 @@ A reasonably fast and accurate missing value imputation by iterative PCA.
 
 
 ## Motivation
-The PCA-based missing value imputater is known to be reasonably fast and accurate, but `scikit-learn` has only slower and/or less advanced imputers. So here is an implementation of PCA-based imputer!
+The PCA-based missing value imputer is known to be reasonably fast and accurate, but scikit-learn has only slower and/or less advanced imputers IMPO. So here is an implementation of the PCA-based imputer!
 
-(I didn't know fancyimputer before implementing this, but this implementation seems faster than theirs for some reason.)
+Note: I didn't know fancyimputer before implementing this, but this implementation seems faster than theirs for some reason...
 
 
 ## Installation
@@ -28,7 +28,7 @@ array([[1.        , 2.        , 3.        ],
 
 
 ## Algorithm
-1) Initialize the estimate of the missing values by the mean (or any sensible values).
+1) Initialize the estimate of the missing values by the mean.
 Then iterate 2-5 to refine the estimate.
 2) Fill the missing values of original data with the estimate.
 3) Fit a PCA to the filled data. 
@@ -36,12 +36,12 @@ Then iterate 2-5 to refine the estimate.
 5) Update the estimate of the missing values by taking the corresponding entries from the reconstruction.
 
 
-## Comparison to other imputers / implementations
-According to my benchmark with synthetic data from a probabilistic PCA model (with missing at random assumption), pca-impute had better mean squared error (MSE) compared to other imputation algorithms available in scikit-learn.
+## Comparison to other algorithms / implementations
+According to my benchmark with synthetic data from a probabilistic PCA model (with missing at random assumption), pca-impute had better mean squared error (MSE) for predicting artificially dropped values, compared to other imputation algorithms available in scikit-learn.
 
-Additionally, execution time of the algorithm was about 3 times faster than a similar implementation of iterative PCA (iterative SVD) algorithm in fancyimpute, while our implementation had slightly better MSE.
+Additionally, the execution time of the algorithm was about 3 times faster than a similar implementation of the iterative PCA (iterative SVD) algorithm in fancyimpute and our implementation had slightly better MSE.
 
-The benchmark script is available at `example/benchmark.py`, and I got the following result on my laptop:
+The benchmark script is available at `example/benchmark.py`, and the following is the result I got on my laptop:
 
 ```bash
 $ python example/benchmark.py
