@@ -24,7 +24,7 @@ def impute(X: np.ndarray, n_components: Union[int, str] = "auto", n_iter: int = 
     mean = np.nanmean(X, axis=0)
     std = np.nanstd(X, axis=0)
     X = (X - mean[None, :]) / std
-    X[isnan] = 0
+    X = np.where(isnan, 0, X)
     for i in range(n_iter):
         _, V = scipy.linalg.eigh(
             X.T @ X,
